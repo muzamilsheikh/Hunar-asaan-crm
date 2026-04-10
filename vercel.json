@@ -1,43 +1,37 @@
 {
   "version": 2,
+  "buildCommand": "npm run build && npm --prefix api install",
+  "outputDirectory": "dist",
+  "public": "dist",
+  "env": {
+    "NODE_ENV": "production"
+  },
   "builds": [
     {
       "src": "api/index.js",
       "use": "@vercel/node",
       "config": {
-        "maxDuration": 30
-      }
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
+        "maxDuration": 30,
+        "includeFiles": "api/**"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.js"
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/uploads/(.*)",
+      "dest": "api/uploads/$1"
+    },
+    {
+      "src": "/(.*\\.[a-z0-9]+)$",
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
