@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  --primary: #1e3a8a;
+  --secondary: #0d9488;
+  --bg-light: #f8fafc;
+  --text-main: #1e293b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2.5 rounded-xl font-semibold bg-primary text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-lg transform hover:-translate-y-0.5 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 rounded-xl font-semibold bg-secondary text-white transition-all duration-300 hover:bg-secondary/90 hover:shadow-lg transform hover:-translate-y-0.5 active:scale-95;
+  }
+
+  .glass-card {
+    @apply bg-white shadow-xl shadow-slate-200/50 border border-white/20 rounded-2xl overflow-hidden;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-secondary transition-all outline-none bg-white/50 focus:bg-white;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-400 hover:text-white hover:bg-white/10;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary text-white shadow-lg shadow-secondary/20;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

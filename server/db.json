@@ -1,0 +1,74 @@
+{
+  "students": [],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Medical Billing",
+      "code": "MB",
+      "fee": 30000,
+      "duration": "3 Months"
+    },
+    {
+      "id": 2,
+      "name": "Digital Marketing",
+      "code": "DM",
+      "fee": 25000,
+      "duration": "3 Months"
+    },
+    {
+      "id": 3,
+      "name": "Graphic Design",
+      "code": "GD",
+      "fee": 20000,
+      "duration": "2 Months"
+    },
+    {
+      "id": 4,
+      "name": "Full Stack Web Dev",
+      "code": "WD",
+      "fee": 45000,
+      "duration": "6 Months"
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "name": "Morning A",
+      "time": "09:00 - 11:00",
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "name": "Evening B",
+      "time": "17:00 - 19:00",
+      "courseId": 2
+    }
+  ],
+  "expenses": [],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "permissions": [
+        "all"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Accounts",
+      "permissions": [
+        "expenses",
+        "fees"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "HR",
+      "permissions": [
+        "students",
+        "courses",
+        "batches"
+      ]
+    }
+  ]
+}
