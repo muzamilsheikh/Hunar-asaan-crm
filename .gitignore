@@ -6,13 +6,33 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+server.log
 
+# Dependencies
 node_modules
+api/node_modules
+
+# Build outputs
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Environment variables (CRITICAL - DO NOT COMMIT)
+.env
+.env.local
+.env.*
+api/.env
+api/.env.local
+api/.env.*
+!.env.example
+!api/.env.example
+
+# Vercel & Deployment
+.vercel
+.vercel-backup
+.vercel-debug
+
+# IDE & Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +42,24 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.iml
+
+# Database files
+*.sql
+db.json
+
+# Uploads & Cache
+api/uploads
+api/.npm-cache
+.npm-cache
+.qoder
+
+# Testing
+*.test.js
+coverage
+
+# Old files
+/server
+/server-old
+*.backup
+

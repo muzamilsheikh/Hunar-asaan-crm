@@ -12,6 +12,7 @@ const server = http.createServer(app);
 // ============ CORS CONFIGURATION ============
 app.use(cors({
     origin: [
+        // Development URLs
         'http://localhost:5173',
         'http://localhost:5174',
         'http://localhost:5175',
@@ -19,7 +20,10 @@ app.use(cors({
         'http://127.0.0.1:5173',
         'http://127.0.0.1:5174',
         'http://127.0.0.1:5175',
-        'http://127.0.0.1:5176'
+        'http://127.0.0.1:5176',
+        // Production URLs
+        'https://hunar-asaan-crm.vercel.app',
+        'https://www.hunar-asaan-crm.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
@@ -86,7 +90,7 @@ async function initializeDatabase() {
 
             await sequelize.authenticate();
             console.log('✅ Connected to MySQL via Sequelize');
-            await sequelize.sync({ alter: true }); // Allow altering tables to add new columns
+            await sequelize.sync({ alter: false }); // Production mode: never alter schema automatically
             console.log('✅ All models synchronized with database');
             dbReady = true;
         } catch (error) {

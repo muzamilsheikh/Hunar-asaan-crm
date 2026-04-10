@@ -1,18 +1,24 @@
 {
   "name": "hunar-asaan-crm",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Hunar Asaan CRM - Education Management System with React Frontend & Serverless Backend",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "cd api && node index.js",
+    "api:dev": "cd api && npm run dev",
+    "install:all": "npm install && cd api && npm install && cd .."
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.2",
     "axios": "^1.13.5",
-    "bcrypt": "^6.0.0",
+    "bcript": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.2",
     "clsx": "^2.1.1",
     "cors": "^2.8.6",
     "date-fns": "^4.1.0",
@@ -23,7 +29,9 @@
     "jsonwebtoken": "^9.0.3",
     "jspdf": "^4.2.0",
     "lucide-react": "^0.564.0",
+    "multer": "^2.0.2",
     "mysql2": "^3.17.2",
+    "nodemailer": "^8.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hot-toast": "^2.6.0",
@@ -49,5 +57,9 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
     "vite": "^7.3.1"
+  },
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "9.x || 10.x"
   }
 }
