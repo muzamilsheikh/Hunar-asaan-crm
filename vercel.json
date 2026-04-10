@@ -1,8 +1,6 @@
 {
   "version": 2,
   "buildCommand": "npm run build && npm --prefix api install",
-  "outputDirectory": "dist",
-  "public": "dist",
   "env": {
     "NODE_ENV": "production"
   },
@@ -14,6 +12,10 @@
         "maxDuration": 30,
         "includeFiles": "api/**"
       }
+    },
+    {
+      "src": "dist/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -26,12 +28,16 @@
       "dest": "api/uploads/$1"
     },
     {
-      "src": "/(.*\\.[a-z0-9]+)$",
-      "dest": "/$1"
+      "src": "/assets/(.*)",
+      "dest": "dist/assets/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|json|ico|svg|png|jpg|jpeg|gif|webp|woff|woff2|ttf)?)$",
+      "dest": "dist/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "dist/index.html"
     }
   ]
 }
