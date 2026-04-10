@@ -1,0 +1,184 @@
+╔════════════════════════════════════════════════════════════════════╗
+║        EXACT ENVIRONMENT VARIABLES FOR VERCEL DASHBOARD              ║
+║              Copy-Paste Ready for Production Deployment              ║
+╚════════════════════════════════════════════════════════════════════╝
+
+LOCATION: Vercel Dashboard → Your Project → Settings → Environment Variables
+
+═══════════════════════════════════════════════════════════════════════
+
+📌 REQUIRED: Add these 13 variables for Production environment
+
+═══════════════════════════════════════════════════════════════════════
+
+1️⃣  NODE ENVIRONMENT
+    Name: NODE_ENV
+    Value: production
+
+2️⃣  VERCEL ENVIRONMENT FLAG
+    Name: VERCEL
+    Value: true
+
+═══════════════════════════════════════════════════════════════════════
+
+🗄️  DATABASE CONFIGURATION (Aiven MySQL Cloud)
+
+3️⃣  Database Host
+    Name: DB_HOST
+    Value: [Your Aiven host - format: xxxxxxxxxxxx.aivencloud.com]
+    
+    To find: Login to aiven.io → Your MySQL service → Connection details
+             Copy the "Host" field
+
+4️⃣  Database Port
+    Name: DB_PORT
+    Value: [Your Aiven port - usually 12345 or similar]
+    
+    To find: Same location as host, look for "Port" field
+
+5️⃣  Database User
+    Name: DB_USER
+    Value: avnadmin
+    
+    Or your custom username if you created one in Aiven
+
+6️⃣  Database Password
+    Name: DB_PASSWORD
+    Value: [Copy from Aiven Connection details - Password field]
+    ⚠️  CRITICAL: Never commit this to GitHub!
+
+7️⃣  Database Name
+    Name: DB_NAME
+    Value: hunar_db
+
+8️⃣  Database SSL
+    Name: DB_SSL
+    Value: true
+    
+    Required for Aiven cloud connections
+
+═══════════════════════════════════════════════════════════════════════
+
+🔐 AUTHENTICATION (JWT)
+
+9️⃣  JWT Secret Key
+    Name: JWT_SECRET
+    Value: [Generate using this command in terminal]
+    
+    Run this command once:
+    ┌─────────────────────────────────────────────────────────┐
+    │ node -e "console.log(require('crypto').           │
+    │          randomBytes(32).toString('hex'))"              │
+    └─────────────────────────────────────────────────────────┘
+    
+    Copy the output (64-character hex string) and paste here
+
+═══════════════════════════════════════════════════════════════════════
+
+📧 EMAIL CONFIGURATION (Gmail SMTP)
+
+🔟 SMTP Host
+    Name: SMTP_HOST
+    Value: smtp.gmail.com
+
+1️⃣1️⃣ SMTP User (Gmail Address)
+    Name: SMTP_USER
+    Value: your-email@gmail.com
+    
+    Use your Gmail account that will send emails
+
+1️⃣2️⃣ SMTP Password (App Password - NOT Regular Password!)
+    Name: SMTP_PASS
+    Value: [16-character Gmail App Password]
+    
+    To generate:
+    1. Go to myaccount.google.com
+    2. Enable 2-Factor Authentication
+    3. Go to "App passwords" (search: myaccount.google.com/apppasswords)
+    4. Select "App: Mail" and "Device: Windows Computer"
+    5. Google will generate 16-character password
+    6. Copy (without spaces) and paste here
+    
+    ✓ Example format: abcdefghijklmnop (16 characters, lowercase)
+
+1️⃣3️⃣ SMTP From (Sender Address)
+    Name: SMTP_FROM
+    Value: noreply@hunar-asaan.com
+    
+    Can be same as SMTP_USER or different "from" address
+
+═══════════════════════════════════════════════════════════════════════
+
+🌐 FRONTEND URL
+
+1️⃣4️⃣ Application URL (Optional)
+    Name: APP_URL
+    Value: https://hunar-asaan-crm.vercel.app
+    
+    Replace with your actual Vercel domain once assigned
+
+═══════════════════════════════════════════════════════════════════════
+
+📋 COMPLETE COPY-PASTE CHECKLIST
+
+Choose Production environment, then add these one-by-one:
+
+☐ NODE_ENV = production
+☐ VERCEL = true
+☐ DB_HOST = [aiven host]
+☐ DB_PORT = [aiven port]
+☐ DB_USER = avnadmin
+☐ DB_PASSWORD = [aiven password]
+☐ DB_NAME = hunar_db
+☐ DB_SSL = true
+☐ JWT_SECRET = [64-char generated key]
+☐ SMTP_HOST = smtp.gmail.com
+☐ SMTP_USER = [your@gmail.com]
+☐ SMTP_PASS = [16-char app password]
+☐ SMTP_FROM = noreply@hunar-asaan.com
+☐ APP_URL = https://hunar-asaan-crm.vercel.app
+
+═══════════════════════════════════════════════════════════════════════
+
+🔍 WHERE TO ENTER THESE
+
+1. Open vercel.com
+2. Select "Hunar-asaan-crm" project
+3. Click "Settings" (top menu)
+4. Click "Environment Variables" (left sidebar)
+5. Make sure "Production" is selected (important!)
+6. Click "Add New"
+7. Paste each NAME and VALUE
+8. Click "Save"
+9. Redeploy project for changes to take effect
+
+═══════════════════════════════════════════════════════════════════════
+
+⚠️  SECURITY NOTES
+
+✓ Never share JWT_SECRET with anyone
+✓ Never commit .env files to GitHub
+✓ Use Gmail App Password (16-char), NOT your regular Gmail password
+✓ Keep DB_PASSWORD secret - it's encrypted on Vercel servers
+✓ Regularly rotate JWT_SECRET and DB_PASSWORD in production
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ AFTER ADDING VARIABLES
+
+1. All variables must be added before deployment
+2. Click "Redeploy" or re-trigger deployment from GitHub
+3. Wait 3-5 minutes for build and deployment
+4. Test with: GET https://your-domain.vercel.app/api/health
+5. Should return: {"status": "✅ Server is running", ...}
+
+═══════════════════════════════════════════════════════════════════════
+
+😎 YOUR PROJECT IS READY!
+
+All code is optimized ✅
+All files are in place ✅
+All routes are configured ✅
+Just add these 13 environment variables and deploy! 🚀
+
+═══════════════════════════════════════════════════════════════════════
